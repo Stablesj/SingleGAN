@@ -1,3 +1,4 @@
+#%%
 import time
 from options.train_options import TrainOptions
 from data.dataloader import CreateDataLoader
@@ -55,3 +56,4 @@ def main():
         
 if __name__ == '__main__':
     main()
+# %%

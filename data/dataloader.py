@@ -62,6 +62,10 @@ class UnPairedDataset(Dataset):
         dirs = os.listdir(self.image_path)
         trainDirs = [dir for dir in dirs if 'train' in dir]
         testDirs = [dir for dir in dirs if 'test' in dir]
+        print('trainDirs: ', trainDirs)
+        print('len(trainDirs): ', len(trainDirs))
+        print('max(self.sourceD)+1: ', max(self.sourceD)+1)
+        print('max(self.targetD)+1: ',  max(self.targetD)+1)
         assert len(trainDirs) >=  max(self.sourceD)+1 and len(trainDirs) >=  max(self.targetD)+1
         trainDirs.sort()
         testDirs.sort()

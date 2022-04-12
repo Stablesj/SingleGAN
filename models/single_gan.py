@@ -233,3 +233,5 @@ class SingleGAN():
         else:
             errG_total.backward()
             self.G_opt.step()
+
+# %%
