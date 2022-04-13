@@ -251,7 +251,9 @@ class Encoder(nn.Module):
 
     def reparametrize(self, mu, logvar):
         std = logvar.mul(0.5).exp_()
-        eps = torch.cuda.FloatTensor(std.size()).normal_()
+        # eps = torch.cuda.FloatTensor(std.size()).normal_()
+        eps = torch.FloatTensor(std.size()).normal_()
+        
         eps = Variable(eps)
         return eps.mul(std).add_(mu)
         

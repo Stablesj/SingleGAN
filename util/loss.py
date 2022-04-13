@@ -8,7 +8,8 @@ from torchvision import models
 #########  Loss  #####################
 class GANLoss(nn.Module):
     def __init__(self, mse_loss=True, target_real_label=1.0, target_fake_label=0.0,
-                 tensor=torch.cuda.FloatTensor):
+                 tensor=torch.FloatTensor):
+                #  tensor=torch.cuda.FloatTensor):
         super(GANLoss, self).__init__()
         self.real_label = target_real_label
         self.fake_label = target_fake_label

@@ -17,7 +17,7 @@ class SingleGAN():
         return 'SingleGAN'
 
     def initialize(self, opt):
-        torch.cuda.set_device(opt.gpu)
+        # torch.cuda.set_device(opt.gpu)
         cudnn.benchmark = True
         self.opt = opt
         self.build_models()
@@ -49,26 +49,27 @@ class SingleGAN():
                 for i in range(self.opt.d_num):
                     self.Ds[i].apply(weights_init(self.opt.init_type))
             ################### use GPU #############################################
-            self.G.cuda()
-            if self.E is not None:
-                self.E.cuda()
-            for i in range(self.opt.d_num):
-                self.Ds[i].cuda()
+            # self.G.cuda()
+            # if self.E is not None:
+            #     self.E.cuda()
+            # for i in range(self.opt.d_num):
+            #     self.Ds[i].cuda()
             ################### set criterion ########################################
             self.criterionGAN = GANLoss(mse_loss=(self.opt.c_gan_mode == 'lsgan'))
             ################## define optimizers #####################################
             self.define_optimizers()
         else:
             self.G.load_state_dict(torch.load('{}/G_{}.pth'.format(self.opt.model_dir, self.opt.which_epoch)))
-            self.G.cuda()
+            # self.G.cuda()
             self.G.eval()
             if self.E is not None:
                 self.E.load_state_dict(torch.load('{}/E_{}.pth'.format(self.opt.model_dir, self.opt.which_epoch)))
-                self.E.cuda()
+                # self.E.cuda()
                 self.E.eval()
         
     def sample_latent_code(self, size):
-        c = torch.cuda.FloatTensor(size).normal_()
+        # c = torch.cuda.FloatTensor(size).normal_()
+        c = torch.FloatTensor(size).normal_()
         return Variable(c)
         
     def get_domain_code(self, domainLable):
@@ -79,8 +80,10 @@ class SingleGAN():
             domainIndex_cache[domainLable[index]].append(index)
         domainIndex = []
         for index in domainIndex_cache:
-            domainIndex.append(Variable(torch.LongTensor(index)).cuda())
-        return Variable(domainCode).cuda(), domainIndex
+            # domainIndex.append(Variable(torch.LongTensor(index)).cuda())
+            domainIndex.append(Variable(torch.LongTensor(index)))
+        # return Variable(domainCode).cuda(), domainIndex
+        return Variable(domainCode), domainIndex
         
     def define_optimizer(self, Net):
         return optim.Adam(Net.parameters(),
@@ -115,7 +118,8 @@ class SingleGAN():
         
     def prepare_image(self, data):
         img, sourceD, targetD = data
-        return Variable(torch.cat(img,0)).cuda(), torch.cat(sourceD,0), torch.cat(targetD,0)
+        # return Variable(torch.cat(img,0)).cuda(), torch.cat(sourceD,0), torch.cat(targetD,0)
+        return Variable(torch.cat(img,0)), torch.cat(sourceD,0), torch.cat(targetD,0)
     
     def translation(self, data):
         input, sourceD, targetD = self.prepare_image(data)
