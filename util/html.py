@@ -1,3 +1,4 @@
+# %%
 import dominate
 from dominate.tags import *
 import os
@@ -62,3 +63,5 @@ if __name__ == '__main__':
         links.append('image_%d.jpg' % n)
     html.add_images(ims, txts, links)
     html.save()
+
+# %%
