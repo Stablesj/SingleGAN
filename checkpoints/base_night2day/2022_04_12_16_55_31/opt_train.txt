@@ -1,0 +1,46 @@
+------------ Options -------------
+batchSize: 1
+c_gan_mode: lsgan
+c_num: 0
+checkpoints_dir: ./checkpoints
+continue_train: False
+d_num: 2
+dataroot: ./datasets/night2day
+display_freq: 400
+display_id: 3
+display_port: 8097
+display_winsize: 256
+e_blocks: 6
+expr_dir: ./checkpoints/base_night2day/2022_04_12_16_55_31
+fineSize: 128
+gpu: 0
+init_type: xavier
+input_nc: 3
+isTrain: True
+is_flip: 1
+lambda_c: 0.5
+lambda_cyc: 10.0
+lambda_ide: 0.0
+lambda_kl: 0.01
+loadSize: 143
+lr: 0.0001
+mode: base
+model_dir: ./checkpoints/base_night2day/2022_04_12_16_55_31/model
+nThreads: 4
+name: base_night2day
+ndf: 64
+nef: 64
+ngf: 64
+niter: 100
+niter_decay: 100
+no_html: False
+norm: instance
+output_nc: 3
+print_freq: 200
+save_epoch_freq: 5
+save_latest_freq: 10000
+time_dir: 
+up_type: Trp
+update_html_freq: 4000
+which_epoch: latest
+-------------- End ----------------
