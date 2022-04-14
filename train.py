@@ -5,6 +5,7 @@ from data.dataloader import CreateDataLoader
 from util.visualizer import Visualizer
 from models.single_gan import SingleGAN
 
+# %%
 
 def main():
     opt = TrainOptions().parse()

@@ -4,6 +4,8 @@ from dominate.tags import *
 import os
 
 
+# %%
+
 class HTML:
     def __init__(self, web_dir, title, reflesh=0):
         self.title = title
@@ -49,6 +51,8 @@ class HTML:
         f.write(self.doc.render())
         f.close()
 
+
+# %%
 
 if __name__ == '__main__':
     html = HTML('web/', 'test_html')

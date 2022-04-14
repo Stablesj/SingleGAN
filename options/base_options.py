@@ -11,7 +11,8 @@ class BaseOptions():
         self.initialized = False
 
     def initialize(self):
-        self.parser.add_argument('--dataroot', default='../night2day', help='path to images (should have subfolders trainA, trainB, testA, testB, etc)')
+        # self.parser.add_argument('--dataroot', default='../night2day', help='path to images (should have subfolders trainA, trainB, testA, testB, etc)')
+        self.parser.add_argument('--dataroot', default='datasets/apple2orange', help='path to images (should have subfolders trainA, trainB, testA, testB, etc)')
         self.parser.add_argument('--batchSize', type=int, default=1, help='input batch size')
 
         self.parser.add_argument('--loadSize', type=int, default=286, help='scale images to this size')
