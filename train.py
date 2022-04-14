@@ -32,7 +32,7 @@ def main():
             if save_result or total_steps % opt.display_freq == 0:
                 save_result = save_result or total_steps % opt.update_html_freq == 0
                 print('mode:{} dataset:{}'.format(opt.mode,opt.name))
-                visualizer.display_current_results(model.get_current_visuals(), epoch, ncols=1, save_result=save_result)
+                # visualizer.display_current_results(model.get_current_visuals(), epoch, ncols=1, save_result=save_result)
                 save_result = False
             
             if total_steps % opt.print_freq == 0:
@@ -40,7 +40,8 @@ def main():
                 t = (time.time() - iter_start_time) / opt.batchSize
                 visualizer.print_current_errors(epoch, epoch_iter, errors, t)
                 if opt.display_id > 0:
-                    visualizer.plot_current_errors(epoch, float(epoch_iter)/dataset_size, opt, errors)
+                    # visualizer.plot_current_errors(epoch, float(epoch_iter)/dataset_size, opt, errors)
+                    pass
                     
             if total_steps % opt.save_latest_freq == 0:
                 print('saving the latest model (epoch %d, total_steps %d)' %(epoch, total_steps))

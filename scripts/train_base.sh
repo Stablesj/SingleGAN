@@ -4,7 +4,8 @@ CLASS=$1  #apple2orange summer2winter_yosemite horse2zebra
 LOAD_SIZE=143
 FINE_SIZE=128
 INPUT_NC=3
-NITER=100
+# NITER=100
+NITER=1
 NITER_DECAY=100
 IDENTITY=0 #If the background color is reversed during the training stage, please set this value to 1 to use identity loss
 if [[ $1 == "apple2orange" ]]; then
@@ -31,9 +32,9 @@ CUDA_VISIBLE_DEVICES=${GPU_ID} python ./train.py \
   --batchSize 1 \
   --ngf 64 \
   --ndf 64 
-  
 
 
 
 
-  
+
+

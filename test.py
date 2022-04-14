@@ -23,7 +23,7 @@ def main():
         print('process input image %3.3d/%3.3d' % (i, opt.how_many))
         all_images, all_names = model.translation(data)
         img_path = 'image%3.3i' % i
-        save_images(webpage, all_images, all_names, img_path, None, width=opt.fineSize)
+        # save_images(webpage, all_images, all_names, img_path, None, width=opt.fineSize)
             
     webpage.save()
 

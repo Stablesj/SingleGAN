@@ -4,6 +4,7 @@ CLASS=$1  #apple2orange summer2winter_yosemite horse2zebra
 TIME_DIR=$2    # e.g. 2018_10_15_10_48_56
 EPOCH='latest'
 HOW_MANY=50
+# HOW_MANY=1
 LOAD_SIZE=128
 FINE_SIZE=128
 INPUT_NC=3

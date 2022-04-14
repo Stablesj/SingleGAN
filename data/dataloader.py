@@ -47,9 +47,9 @@ class UnPairedDataset(Dataset):
         self.preprocess()
         print ('Finished preprocessing dataset..!')
         if isTrain:
-            trs = [transforms.Resize(loadSize, interpolation=Image.ANTIALIAS), transforms.RandomCrop(fineSize)]
+            trs = [transforms.Resize(loadSize, interpolation= transforms.InterpolationMode.NEAREST), transforms.RandomCrop(fineSize)]
         else:
-            trs = [transforms.Resize(loadSize, interpolation=Image.ANTIALIAS), transforms.CenterCrop(fineSize)]
+            trs = [transforms.Resize(loadSize, interpolation= transforms.InterpolationMode.NEAREST), transforms.CenterCrop(fineSize)]
         if isFlip:
             trs.append(transforms.RandomHorizontalFlip())
         self.transform = transforms.Compose(trs)

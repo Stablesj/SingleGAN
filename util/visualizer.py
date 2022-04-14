@@ -43,8 +43,9 @@ class Visualizer():
         self.log_path = os.path.join(opt.expr_dir, 'train_log.txt')
 
         if self.display_id > 0:
-            import visdom
-            self.vis = visdom.Visdom(port=opt.display_port)
+            # import visdom
+            # self.vis = visdom.Visdom(port=opt.display_port)
+            pass
 
         if self.use_html:
             self.web_dir = os.path.join(opt.expr_dir,'web')
